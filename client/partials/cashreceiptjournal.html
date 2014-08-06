@@ -1,0 +1,106 @@
+<h1>Cash Receipt Journal</h1>
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-6 col-xs-12 text-left no-padding">
+            <div class="col-md-5">Cash Receipts Journal No.</div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-6 no-padding">
+            <div class="col-md-4 col-xs-3 rounded-border">
+                CRJ# 00001
+            </div>
+        </div>
+        <div class="col-md-3 pull-right">
+            <div class="col-md-6 text-right no-padding">Open Period:&nbsp;&nbsp;</div>
+            <div class="col-md-6 no-padding rounded-border">January 2014</div>
+        </div>
+    </div>
+    <div class="row margin-top-5">
+        <div class="col-md-6">
+        </div>
+        <div class="col-md-3 pull-right">
+            <div class="col-md-6 text-right no-padding">Posting Date:&nbsp;&nbsp;</div>
+            <div class="col-md-6 no-padding rounded-border">31 January, 2014</div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-6 no-padding">
+            <div class="col-md-4 col-xs-3">Transaction Ref. No.</div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-6 no-padding">
+            <div class="col-md-4 col-xs-3 rounded-border">
+                SI# 12345
+            </div>
+        </div>
+    </div>
+    <br/>
+
+    <div class="table-responsive">
+        <form action="#/cashreceiptjournal" method="post" role="form">
+            <table id="cash-receipt-journal-table" class="table table-condensed">
+                <thead>
+                <tr class="text-center">
+                    <th style="width: 1%;"></th>
+                    <th style="width: 1%;">#</th>
+                    <th class="col-md-2">Ledger Account</th>
+                    <th class="col-md-2">Subsidiary Account</th>
+                    <th>Description</th>
+                    <th class="col-md-2">Debit</th>
+                    <th class="col-md-2">Credit</th>
+                </tr>
+                </thead>
+                <tbody compile-data template="{{NewJournalLine}}">
+                </tbody>
+            </table>
+            <hr/>
+            <div class="container">
+                <div class="row no-padding">
+                    <div class="col-md-1 text-left no-padding"><a href="#" class="btn btn-default"
+                                                                  data-ng-click="AddJournalLine()">+</a></div>
+                </div>
+            </div>
+            <hr/>
+            <div ng-class="myClass" class="row" style="padding: 10px 0">
+                <div class="col-md-8 text-right" style="margin-top: 6px;">
+                    GRAND TOTAL&nbsp;
+                    <span data-ng-show="isEqual"><strong><i>IS EQUAL</i></strong></span>
+                    <span data-ng-show="isNotEqual"><strong><i>IS NOT EQUAL</i></strong></span>
+                </div>
+                <div class="col-md-2">
+                    <input type="text" class="form-control has-error text-right" value="{{GrandTotalDebit}}" readonly />
+                </div>
+                <div class="col-md-2">
+                    <input type="text" class="form-control text-right" value="{{GrandTotalCredit}}" readonly />
+                </div>
+            </div>
+            <hr/>
+            <div class="row">
+                <div class="col-md-8 text-right" style="margin-top: 6px;">
+                </div>
+                <div class="col-md-2">
+                    <button class="form-control">REVERSE</button>
+                </div>
+                <div class="col-md-2">
+                    <button type="submit" class="form-control">SAVE</button>
+                    <br/>
+                    <button class="form-control">VOID</button>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+
+
+
+
+
+
+
+
+
+
